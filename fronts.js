@@ -37,8 +37,25 @@ class SLL { // class for the sll
         }
         return this.head.data //return data from head node
     }
+    //method to display the data values in the SLL
+    display() {
+        let runner = this.head; //create a runner to move through the nodes
+        let dataList = ''; //and an empty string to put the values in
+        if (runner === null) { //if there aren't any nodes
+            return null; //return null
+        }
+        while (runner !== null) { //start a while loop to move through the nodes that ends when the runner gets to the end of the SLL
+            dataList += runner.data; //append each value to the string
+            runner=runner.next; //then move the runner onto the next node
+            if (runner !== null) {
+                dataList += ','; //and add a comma if there's still another node to add
+            }
+        }
+        return dataList; //return the concatenated list
+    }
 }
 SLL1 = new SLL()
 console.log(SLL1.addFront(18))
 console.log(SLL1.addFront(5))
 console.log(SLL1.addFront(73))
+console.log(SLL1.display())
